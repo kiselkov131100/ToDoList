@@ -1,0 +1,24 @@
+form {
+    width: 30%;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 4px solid purple;
+}
+
+#todo {
+    width: 30%;
+    padding: 1rem;
+    border: 4px solid greenyellow;
+}
+
+.card {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border: 2px solid;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+.card:hover {
+    border-color: rgba(43, 43, 226, 0.1);
+}
