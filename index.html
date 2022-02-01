@@ -5,16 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>ToDoList</title>
   </head>
   <body>
-    <form id="form">
-      <input id="inputText" />
-      <button id="btnSubmit">Submit</button>
-    </form>
+    <div class="wrap">
+      <form id="form">
+        <input id="inputText" placeholder="Enter your task" />
+        <button id="btnSubmit">Submit</button>
+        <button id="btnClearAll">Clear All</button>
+      </form>
+      <div id="todo"></div>
+    </div>
 
-    <div id="todo"></div>
+    <div id="modal">
+      <form id="modal_form">
+        <input id="inputText" class="modal_inputText" />
+        <button id="btnModal"></button>
+      </form>
+    </div>
 
     <script src="index.js"></script>
+    <!-- <script src="script.js"></script> -->
   </body>
 </html>

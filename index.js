@@ -2,21 +2,28 @@ const form = document.querySelector("#form");
 const todo = document.querySelector("#todo");
 const inputText = document.querySelector("#inputText");
 const btnSubmit = document.querySelector("#btnSubmit");
+const modal = document.querySelector("#modal");
 
 const data = [];
 
 btnSubmit.addEventListener("click", (event) => {
   event.preventDefault();
 
-  data.push(inputText.value);
+  data.push({
+    title: inputText.value,
+    done: false,
+    id: Date.now(),
+  });
 
   todo.innerHTML = "";
 
-  data.forEach((title, index) => {
+  data.forEach((task) => {
     todo.innerHTML += `
-    <div class='card' id=${index}>
-    ${title}
-    <button id='btnDelete'>Delete</button>
+    <div class='${task.done ? "card card_done" : "card"}' id=${task.id}>
+    ${task.title}
+    <button class='btnDelete'>Delete</button>
+    <button class='btnDone'>Done</button>
+    <button class='btnEdit'>Edit</button>
     </div>
   `;
   });
@@ -25,21 +32,49 @@ btnSubmit.addEventListener("click", (event) => {
 });
 
 todo.addEventListener("click", (event) => {
-  if (event.target.id === "btnDelete") {
+  if (event.target.classList.contains("btnDelete")) {
     const card = event.target.closest(".card");
     const cardId = +card.id;
+    const cardIndexInData = data.findIndex((task) => task.id === cardId);
 
-    data.splice(cardId, 1);
+    data.splice(cardIndexInData, 1);
 
     todo.innerHTML = "";
 
-    data.forEach((title, index) => {
+    data.forEach((task, index) => {
       todo.innerHTML += `
-        <div class='card' id=${index}>
-        ${title}
-        <button id='btnDelete'>Delete</button>
+      <div class='${task.done ? "card card_done" : "card"}' id=${task.id}>
+      ${task.title}
+        <button class='btnDelete'>Delete</button>
+        <button class='btnDone'>Done</button>
         </div>
       `;
     });
+  }
+
+  if (event.target.classList.contains("btnDone")) {
+    const card = event.target.closest(".card");
+    const cardId = +card.id;
+    const cardIndexInData = data.findIndex((task) => task.id === cardId);
+
+    data[cardIndexInData].done = !data[cardIndexInData].done;
+
+    console.log(data);
+
+    todo.innerHTML = "";
+
+    data.forEach((task) => {
+      todo.innerHTML += `
+        <div class='${task.done ? "card card_done" : "card"}' id=${task.id}>
+        ${task.title}
+        <button class='btnDelete'>Delete</button>
+        <button class='btnDone'>Done</button>
+        </div>
+      `;
+    });
+  }
+
+  if (event.target.classList.contains("btnEdit")) {
+    modal.classList.toggle("visible");
   }
 });
