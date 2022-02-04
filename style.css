@@ -1,9 +1,13 @@
+body {
+    background-color: rgba(19, 19, 19, 0.753);
+}
+
 .wrap {
     padding: 20px;
     margin: 0 auto;
     width: 600px;
     background-color: rgb(199, 224, 224);
-    border: 3px solid black;
+    border: 3px solid;
 }
 
 #form {
@@ -29,6 +33,11 @@
     outline: none;
 }
 
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
 button {
     border: 3px solid;
     border-radius: 5px;
@@ -36,12 +45,12 @@ button {
     background-color: darkslateblue;
     width: 150px;
     height: 40px;
+    cursor: pointer;
 }
 
 .card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     gap: 10px;
     font-weight: bold;
     padding: 10px;
@@ -51,7 +60,7 @@ button {
 }
 
 .card_done {
-    background-color: red;
+    background-color: lightgreen;
 }
 
 .btnDelete {
@@ -67,10 +76,14 @@ button {
 }
 
 #modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
     position: absolute;
     height: 200px;
     width: 500px;
-    border: 1px solid black;
+    border: 1px solid;
     padding: 10px;
     top: -250px;
     left: calc(50% - 250px);
@@ -81,4 +94,27 @@ button {
 #modal.visible {    
     top: calc(50% - 100px);
     transition: 0.3s;
+}
+
+#modal > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#modal > form > input {
+    border-radius: 5px;
+    width: 300px;
+    height: 30px;
+    outline: none;
+}
+
+#btnClose {
+    position: absolute;
+    right: 10px;
+    top: 10px; 
+    color: red;
+    font-size: x-large;
+    cursor: pointer;
 }

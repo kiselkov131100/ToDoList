@@ -41,12 +41,13 @@ todo.addEventListener("click", (event) => {
 
     todo.innerHTML = "";
 
-    data.forEach((task, index) => {
+    data.forEach((task) => {
       todo.innerHTML += `
       <div class='${task.done ? "card card_done" : "card"}' id=${task.id}>
       ${task.title}
         <button class='btnDelete'>Delete</button>
         <button class='btnDone'>Done</button>
+        <button class='btnEdit'>Edit</button>
         </div>
       `;
     });
@@ -69,6 +70,7 @@ todo.addEventListener("click", (event) => {
         ${task.title}
         <button class='btnDelete'>Delete</button>
         <button class='btnDone'>Done</button>
+        <button class='btnEdit'>Edit</button>
         </div>
       `;
     });
