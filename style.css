@@ -114,7 +114,6 @@ button {
     position: absolute;
     right: 10px;
     top: 10px; 
+    width: 70px;
     color: red;
-    font-size: x-large;
-    cursor: pointer;
 }

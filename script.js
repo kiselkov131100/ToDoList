@@ -13,16 +13,16 @@ const renderToDo = () => {
 
   data.forEach((task) => {
     todo.innerHTML += `
-        <div class="card" id=${task.id}>
-            <p style="overflow-wrap: break-word;" 
-            class='${task.done ? "card card_done" : "card"}' id=${task.id}>
-            ${task.title}</p>
-            <div class='buttons'>
+        <div style="overflow-wrap: break-word;"
+          class='${task.done ? "card card_done" : "card"}' id=${task.id}>
+            ${task.title}
+          <div class='buttons'>
             <button class="btnDone">Done</button>
             <button class="btnEdit">Edit</button>  
             <button class="btnDelete">Delete</button>
-            </div>
-        </div>`;
+          </div>
+        </div>
+        `;
   });
 };
 
@@ -66,15 +66,9 @@ todo.addEventListener("click", (event) => {
       break;
     case event.target.classList.contains("btnEdit"):
       modal.classList.add("visible");
-      modal.innerHTML = `
-              <div>
-              <h1>Edit your task</h1>
-              <div id="btnClose">x</div></div>
-              <form>
-              <input id="${cardId}" value="${data[cardIndexInData].title}">
-              <button id="btnModal">OK</button>
-              </form>
-              `;
+      const input = modal.querySelector("input");
+      input.id = `${cardId}`;
+      input.value = `${data[cardIndexInData].title}`;
       break;
   }
 });

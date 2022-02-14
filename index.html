@@ -17,7 +17,16 @@
       <div id="todo"></div>
     </div>
 
-    <div id="modal"></div>
+    <div id="modal">
+      <div class="modal-header">
+        <h1>Edit your task</h1>
+        <button id="btnClose">CLOSE</button>
+      </div>
+      <form>
+        <input id="${cardId}" value="${data[cardIndexInData].title}" />
+        <button id="btnModal">OK</button>
+      </form>
+    </div>
 
     <!-- <script src="index.js"></script> -->
     <script src="script.js"></script>
