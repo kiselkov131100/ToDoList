@@ -1,21 +1,28 @@
 body {
-    background-color: rgba(19, 19, 19, 0.753);
+    background-color: black;
 }
 
 .wrap {
     padding: 20px;
     margin: 0 auto;
     width: 600px;
-    background-color: rgb(199, 224, 224);
-    border: 3px solid;
+    background-color: blueviolet;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
 }
 
 #form {
     padding: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     display: flex;
     justify-content: space-between;
     gap: 40px;
+    display: block;
+    text-align: center;
 }
 
 #todo {
@@ -26,11 +33,11 @@ body {
 
 #inputText {
     padding: 0 5px;
-    border: 3px solid;
     border-radius: 5px;
-    width: 600px;
-    height: 30px;
+    width: 500px;
+    height: 40px;
     outline: none;
+    border: 1px solid;
 }
 
 .buttons {
@@ -39,10 +46,10 @@ body {
 }
 
 button {
+    margin: 15px;
     border: 3px solid;
     border-radius: 5px;
     font-weight: bold;
-    background-color: darkslateblue;
     width: 150px;
     height: 40px;
     cursor: pointer;
@@ -60,19 +67,7 @@ button {
 }
 
 .card_done {
-    background-color: lightgreen;
-}
-
-.btnDelete {
-    background-color: red;
-}
-
-.btnDone {
-    background-color: green;
-}
-
-.btnEdit {
-    background-color: yellow;
+    background-color: rgb(70, 35, 100);
 }
 
 #modal {
